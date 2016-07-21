@@ -1,0 +1,22 @@
+<button id="menu-toggle" type="button" class="btn btn-danger toggle" aria-label="Left Align">
+  <span id="menu-arrow" class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+</button>
+
+<nav id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><%= link_to "Bike and Bed", root_path, :onclick => '$("menu-toggle").click()' %></li>
+    <li><%= link_to "Events", events_path, :onclick => '$("menu-toggle").click()' %></li>
+    <li><%= link_to "Accommodations", accommodations_path, :onclick => '$("menu-toggle").click()' %></li>
+    <li><%= link_to "Tours (coming soon)", '#', :onclick => '$("menu-toggle").click()' %></li>
+    <li class="hidden"><%= link_to "Shop (coming soon)", '#', :onclick => '$("menu-toggle").click()' %></li>
+    <li><%= link_to "Help", '#', :onclick => '$("menu-toggle").click()' %></li>
+    <li><%= link_to "FAQ", '#', :onclick => '$("menu-toggle").click()' %></li>
+    <li><%= link_to "ToS", '#', :onclick => '$("menu-toggle").click()' %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to "Profile", '#', :onclick => '$("menu-toggle").click()' %></li>
+      <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+    <% else %>
+      <li><%= link_to "Log in", new_user_session_path %></li>
+    <% end %>
+  </ul>
+</nav>
