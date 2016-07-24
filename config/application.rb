@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+PROPERTIES_PATH = File.expand_path('../..', __FILE__) + ('/properties.yml').to_s
+
 module BikeAndBed
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
