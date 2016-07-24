@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711194751) do
+ActiveRecord::Schema.define(version: 20160724182051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 20160711194751) do
     t.integer  "zoom",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "accommodations_events", force: :cascade do |t|
+    t.integer "accommodation_id", null: false
+    t.integer "event_id",         null: false
   end
 
   create_table "events", force: :cascade do |t|

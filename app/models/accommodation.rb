@@ -24,6 +24,7 @@ class Accommodation < ActiveRecord::Base
       field :description
       field :rules
       field :region
+      field :events
       field :user
       field :latitude
       field :longitude
@@ -38,6 +39,7 @@ class Accommodation < ActiveRecord::Base
       field :description
       field :rules
       field :region
+      field :events
       field :user
       field :latitude
       field :longitude
@@ -53,6 +55,7 @@ class Accommodation < ActiveRecord::Base
       field :description
       field :rules
       field :region
+      field :events
       field :user
       field :latitude
       field :longitude

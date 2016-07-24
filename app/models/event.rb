@@ -9,6 +9,11 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :accommodations
 
   validates :name, :type, :difficulty, :region, :start_date, :end_date, :latitude, :longitude, :zoom, presence: true
+  validates :type, inclusion: { in: EventType.values,
+    message: "%{value} is not a valid event type." }, presence: true
+  validates :difficulty, inclusion: { in: EventDifficulty.values,
+    message: "%{value} is not a valid event difficulty." }, presence: true
+  validates :rating, numericality: { greater_than: 0, less_than_or_equal_to: 5 }
 
 
   def get_color
@@ -49,6 +54,7 @@ class Event < ActiveRecord::Base
       field :start_time
       field :end_time
       field :region
+      field :accommodations
       field :latitude
       field :longitude
       field :zoom
@@ -70,6 +76,7 @@ class Event < ActiveRecord::Base
       field :start_time
       field :end_time
       field :region
+      field :accommodations
       field :latitude
       field :longitude
       field :zoom
@@ -91,6 +98,7 @@ class Event < ActiveRecord::Base
       field :start_time
       field :end_time
       field :region
+      field :accommodations
       field :latitude
       field :longitude
       field :zoom
