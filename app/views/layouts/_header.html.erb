@@ -1,0 +1,19 @@
+<div class="navbar navbar-default navbar-static-top" role="navigation"></div>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" id="nav-container">
+  <div class="col-md-2" id="logo">
+    <%= link_to (svg 'bnb-logo-white'), root_path %>
+  </div>
+  <div class="col-md-8 center" id="navigation">
+    <%= link_to "EVENTS", events_path %>
+    <%= link_to "ACCOMMODATION", accommodations_path %>
+    <%= link_to "TOURS", root_path %>
+    <%= link_to "BLOG", root_path %>
+    <%= link_to "CONTACT", root_path %>
+  </div>
+  <div class="col-md-2 center" id="language">
+    <%= link_to "HR", root_path %><span>&nbsp/&nbsp</span><%= link_to "EN", root_path %>
+    <!-- <div class="pull-right">
+      <span><%= user_signed_in? ? "Welcome #{@user.username}!" : "Welcome!" %></span>
+    </div> -->
+  </div>
+</div>

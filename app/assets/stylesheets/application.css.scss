@@ -4,17 +4,20 @@
 @import "bootstrap";
 
 
-// Mixins, variables, etc.
+// Mixins, variables, etc. - start
 $gray-medium-light: #eaeaea;
 $white-color: #fff;
 $snow-white-color: #d8dcd4;
 $black-color: #000;
-$dark-gray: #222;
+$dark-gray: #343434;
 $red-color: #ff0000;
+$bnb-dark-green: #0b6639;
+$bnb-light-green: #8ec34a;
 $opacity: 0.4;
+$navbar-height: 90px;
+// Mixins, variables, etc. - end
 
-
-// functions
+// functions - start
 @function black_transparent($opacity) {
   @return rgba($black-color, $opacity)
 };
@@ -22,10 +25,12 @@ $opacity: 0.4;
 @function white_transparent($opacity) {
   @return rgba($white-color, $opacity)
 };
+// functions - end
 
 
-// universal
+// universal - start
 body {
+  color: $dark-gray;
   width: 100%;
   height: 100%;
   font-family: Lora, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -41,8 +46,11 @@ body {
   }
 }
 
+.title {
+  background-color: white;
+}
+
 hr {
-  color: black;
   background-color: black;
 }
 
@@ -63,7 +71,7 @@ hr {
   position: relative;
   width: 100%;
   height: 100%;
-  background: $white-color no-repeat center center scroll;
+  background: $snow-white-color no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -73,7 +81,7 @@ hr {
 section {
   overflow: auto;
   position: relative;
-  margin-bottom: 3em;
+  margin-bottom: 4em;
 
   .title {
     width: 100%;
@@ -83,7 +91,7 @@ section {
     color: $white-color;
   }
   h1 {
-    color: $snow-white-color;
+    color: $white-color;
     display: inline-block;
     text-align: center;
     text-transform: uppercase;
@@ -154,34 +162,57 @@ textarea {
   }
 }
 
+.full-screen {
+  padding: 0px;
+  height: 50vh;
+  overflow: hidden;
+}
+// universal - end
 
-// header
-#logo {
-  text-align: center;
-  float: left;
-  margin-right: 1em;
-  margin-left: 1em;
-  font-size: 1.7em;
-  color: $snow-white-color;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-
-  a {
-    &:hover {
-      color: $white-color;
-      text-decoration: none;
-    }
-  }
+// header - start
+.navbar-default {
+  height: $navbar-height;
+  border-width: 0px;
+  margin: 0px;
 }
 
 .navbar-fixed-top {
   background: $dark-gray;
-  border-color: $black-color;
+  color: $white-color;
+
+  #logo {
+    height: 100%;
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+
+    a {
+      &:hover {
+        color: $white-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  #navigation, #language {
+    height: 100%;
+    padding-top: 35px;
+  }
+
+  #navigation {
+    padding-left: 7%;
+    padding-right: 7%;
+
+    a {
+      padding-left: 3%;
+      padding-right: 3%;
+    }
+  }
 
   a {
-    color: $snow-white-color;
+    color: $white-color;
 
     &:link {
       text-decoration: none;
@@ -189,11 +220,15 @@ textarea {
     &:hover {
       color: $white-color;
     }
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
+// header - end
 
-
-// side bar wrapper
+// side bar wrapper - start
 #sidebar-wrapper {
   z-index: 1000;
   position: fixed;
@@ -300,9 +335,69 @@ textarea {
 .toggle {
   margin: 8px 8px 0 0;
 }
+// side bar wrapper - end
 
+// homepage - start
+.banner {
 
-// buttons
+}
+
+.home-content {
+
+}
+// homepage - end
+
+// events - start
+.events {
+  background-image: url('bnb-mountain.jpg');
+  background-repeat: no-repeat;
+}
+
+.calendar-content {
+  padding-left: 12.5%;
+  padding-right: 12.5%;
+
+  .title {
+    padding-top: 20px;
+  }
+}
+
+.white-background {
+  opacity: 0.9;
+  background-color: white;
+}
+
+.fc-view-container {
+  background-color: white;
+}
+
+.calendar {
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 15px;
+  padding-bottom: 30px;
+
+  h2 {
+    margin-top: 25px;
+  }
+}
+
+// .fc-basic-view {
+//   box-shadow: 10px -8px 10px #888888;
+// }
+
+.fc-toolbar {
+  margin-bottom: 30px;
+}
+
+.fc-event {
+  height: 22px !important;
+  text-align: center;
+  margin-bottom: 5px;
+}
+// events - end
+
+// buttons - start
 .btn-dark{
   border-radius: 0;
   color: $white-color;
@@ -340,9 +435,9 @@ textarea {
     background-color: white_transparent(0.8);
   }
 }
+// buttons - end
 
-
-// footer
+// footer - start
 footer {
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
@@ -370,3 +465,4 @@ footer {
     }
   }
 }
+// footer - end

@@ -9,24 +9,24 @@ class Event < ActiveRecord::Base
   has_and_belongs_to_many :accommodations
 
   validates :name, :type, :difficulty, :region, :start_date, :end_date, :latitude, :longitude, :zoom, presence: true
-  validates :type, inclusion: { in: EventType.values,
+  validates :type, inclusion: { in: EventType.keys,
     message: "%{value} is not a valid event type." }, presence: true
-  validates :difficulty, inclusion: { in: EventDifficulty.values,
+  validates :difficulty, inclusion: { in: EventDifficulty.keys,
     message: "%{value} is not a valid event difficulty." }, presence: true
   validates :rating, numericality: { greater_than: 0, less_than_or_equal_to: 5 }
 
 
   def get_color
     case self.difficulty
-    when EventDifficulty[:KIDS].value
+    when EventDifficulty[0].name
       return Color[:CYAN].value
-    when EventDifficulty[:LOW].value
+    when EventDifficulty[1].name
       return Color[:GREEN].value
-    when EventDifficulty[:MEDIUM].value
+    when EventDifficulty[2].name
       return Color[:BLUE].value
-    when EventDifficulty[:HIGH].value
+    when EventDifficulty[3].name
       return Color[:ORANGE].value
-    when EventDifficulty[:INSANE].value
+    when EventDifficulty[4].name
       return Color[:RED].value
     else
       return ''

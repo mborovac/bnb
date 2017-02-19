@@ -13,19 +13,25 @@ class Enum
   end
 
   def self.const_missing(key)
-    self.new(key,@hash[key]) unless @hash[key].nil?
+    self.new(key, @hash[key]) unless @hash[key].nil?
   end
 
   def self.values
-    @hash.map {|n,v| v}
+    @hash.map {|n, v| v}
+  end
+
+  def self.keys
+    @hash.map {|n, v|
+      n.is_a?(Fixnum) ? n : n.to_s
+    }
   end
 
   def self.each
-    @hash.each {|key,value| yield(key,value)}
+    @hash.each {|key, value| yield(key, value)}
   end
 
   def self.for_select
-    @hash.map { |n,v| [v,n] }
+    @hash.map { |n, v| [v, n] }
   end
 
   def ==(other)
@@ -42,9 +48,9 @@ class Enum
   end
 
   def self.[](key)
-    return Enum.new("","") if key.blank?
-    key = key.upcase.to_sym unless key.is_a?(Symbol)
-    self.new(key,@hash[key]) unless @hash[key].nil?
+    return Enum.new("", "") if key.blank?
+    key = key.upcase.to_sym unless (key.is_a?(Symbol) || key.is_a?(Fixnum))
+    self.new(key, @hash[key]) unless @hash[key].nil?
   end
 
 end

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :reviews
 
   validates :username, :email, presence: true
-  validates :role, inclusion: { in: UserRole.values,
+  validates :role, inclusion: { in: UserRole.keys,
     message: "%{value} is not a valid role." }, presence: true
 
 

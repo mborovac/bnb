@@ -5,8 +5,8 @@
 
     <title>BikeAndBed</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
 
@@ -15,15 +15,11 @@
   <body>
 
     <%= render 'layouts/shim' %>
-
-    <div class="col-md-12" id="page-top" data-target=".navbar-fixed-top">
-      <%= render ('subnav' || 'layouts/subnav') %>
+    <div class="col-md-12" data-target=".navbar-fixed-top" id="page-top">
+      <%= render 'layouts/header' %>
     </div>
     <div class="col-md-12 super-container" id="content-container">
       <%= yield %>
-    </div>
-    <div class="col-md-12" id="footer">
-      <%= render 'layouts/footer' %>
     </div>
 
   </body>

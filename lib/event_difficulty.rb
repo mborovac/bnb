@@ -2,9 +2,9 @@ require 'enum'
 
 class EventDifficulty < Enum
 
-  EventDifficulty.add_item(:KIDS, 0)
-  EventDifficulty.add_item(:LOW, 1)
-  EventDifficulty.add_item(:MEDIUM, 2)
-  EventDifficulty.add_item(:HIGH, 3)
-  EventDifficulty.add_item(:INSANE, 4)
+  EventDifficulty.add_item(0, 'Kids')
+  EventDifficulty.add_item(1, 'Low')
+  EventDifficulty.add_item(2, 'Medium')
+  EventDifficulty.add_item(3, 'High')
+  EventDifficulty.add_item(4, 'Insane')
 end
